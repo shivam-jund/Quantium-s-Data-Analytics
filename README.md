@@ -16,6 +16,7 @@ material*, or what order things run in. This README and the folder layout below 
 ```
 .
 ├── README.md                     <- you are here
+├── requirements.txt               <- Python dependencies
 ├── data/
 │   ├── raw/                      <- untouched source files
 │   │   ├── QVI_transaction_data.xlsx
@@ -59,6 +60,14 @@ the pipeline produced, or something Forage handed him to work from?** Those are 
 different kinds of file and they now live in three different places (`task_solutions/` +
 `reports/`, `data/` + `outputs/`, and `reference/`, respectively).
 
+## Setup
+
+Install the Python dependencies once, from the repo root:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## The pipeline, step by step
 
 Everything in `outputs/` and `data/processed/` is *generated* — never edit those files by
@@ -71,8 +80,15 @@ hand, just re-run the scripts.
 | 3 | `03_visualizations.py` | `QVI_merged_data.csv` | 3 PNGs in `outputs/charts/` | Builds the segment overview heatmap, the daily sales trend line, and the target-segment brand/pack-size affinity chart. |
 | 4 | `04_summary_tables.py` | `QVI_merged_data.csv` | 3 CSVs in `outputs/tables/` | Builds the numeric tables behind those charts, plus a Welch's t-test on unit price to back up the "Mainstream shoppers pay more" finding with a p-value. |
 
-To reproduce everything from scratch: run the four scripts in order (each one reads what
-the previous one wrote).
+To reproduce everything from scratch, run the four scripts in order from the repo root
+(each one reads what the previous one wrote):
+
+```bash
+python scripts/01_data_cleaning.py
+python scripts/02_merge_data.py
+python scripts/03_visualizations.py
+python scripts/04_summary_tables.py
+```
 
 ## Headline findings
 
