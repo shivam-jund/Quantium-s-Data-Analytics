@@ -1,0 +1,2 @@
+comparison,scope,mainstream_mean_price,other_mean_price,pct_difference,t_statistic,p_value,n_mainstream,n_other
+"Mainstream vs Budget+Premium, unit price ($/packet)",Young + Midage Singles/Couples lifestages only,4.0278,3.6918,9.1,38.11,0.0,30905,27104
