@@ -1,0 +1,63 @@
+## Background (all tasks)
+
+You're working on the Retail Analytics and Strategy team at Quantium. Your client is the Category Manager for Chips at a supermarket chain. She wants a clearer picture of who buys chips and how they shop, so she can build a strategic plan for the chips category for the next six months. Later, she also wants to know whether a new store layout trial actually increased sales, so she can decide whether to roll it out to all stores.
+
+---
+
+## Task 1: Data Preparation and Customer Analytics
+
+**Objective:** Clean and explore the transaction and customer datasets, then use them to understand chip-buying behavior across different customer segments.
+
+**What you're given:**
+- A transaction dataset covering roughly a year of purchases across stores
+- A customer dataset with demographic info — life stage (e.g., young singles, families, retirees) and premium/budget/mainstream customer segment
+
+**What to do:**
+- Inspect both datasets for irregularities: missing values, negative or zero quantities, duplicate transactions, unusual product names, and outliers (e.g., a customer buying an implausibly large quantity in one transaction)
+- Filter the transaction data down to chip-related products, cleaning up product names (stripping package sizes, special characters, etc.) so products can be grouped sensibly
+- Remove or investigate non-chip items that might have slipped in (e.g., salsa, which sometimes appears in similar product categories)
+- Merge the transaction and customer datasets together
+- Analyze total sales, number of customers, and average spend broken down by life stage and customer segment
+- Identify which segments drive the most chip sales and spending, and look at things like purchase frequency and pack size preferences across segments
+- Summarize findings into a short set of insights and recommendations that could inform the Category Manager's strategic plan
+
+**Deliverable:** A short written summary (or slide) of key insights, supported by charts/tables, aimed at a non-technical business stakeholder.
+
+---
+
+## Task 2: Experimentation and Uplift Testing
+
+**Objective:** Determine whether a trial of a new store layout increased chip sales, using a rigorous store-to-store comparison.
+
+**Context:** Three stores (referred to as trial stores) tested a new layout. You need to know if their sales performance improved *because of* the trial, not just due to normal variation.
+
+**What to do:**
+- Using the cleaned data from Task 1, calculate monthly sales metrics per store: total sales, number of customers, and transactions per customer
+- For each trial store, select the best-matching "control" store from among all other stores — one whose historical sales pattern (pre-trial) most closely resembles the trial store's, so the comparison isn't biased
+- Common approach: use a correlation or magnitude-distance metric between each candidate store's monthly sales trend and the trial store's trend to score similarity, then pick the highest-scoring match
+- Once matched, compare the trial store's performance *during* the trial period against the scaled/control store's performance over the same period
+- Assess whether the difference is statistically meaningful (not just random fluctuation) — this usually involves calculating a percentage difference and checking it against expected variation from the pre-trial period
+- Repeat this process independently for each of the three trial stores
+- Draw a conclusion for each store: did the trial layout lead to a measurable uplift in sales, customers, or transactions?
+
+**Deliverable:** An analysis (with visualizations comparing trial vs. control store trends) and a clear recommendation on whether each trial layout appears to have been successful.
+
+---
+
+## Task 3: Analytics and Commercial Application
+
+**Objective:** Package the findings from Tasks 1 and 2 into a polished, business-ready presentation for the Category Manager.
+
+**What to do:**
+- Consolidate the customer segment insights and the trial store results into a cohesive narrative
+- Design clear, professional visuals (charts, tables) that support your recommendations — avoid clutter, make it easy for a non-technical stakeholder to skim and understand
+- Structure the presentation logically: context/background → key findings on customer behavior → trial results → recommendations
+- Make actionable recommendations: e.g., which customer segments to target, what layout changes seem worth rolling out further, and any caveats or next steps
+
+**Deliverable:** A short slide deck or report presenting the findings and strategic recommendations, written for a business audience rather than a technical one.
+
+---
+
+**Datasets you already have:**
+- `QVI_transaction_data.xlsx`
+- `QVI_purchase_behaviour.csv`
